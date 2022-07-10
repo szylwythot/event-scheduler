@@ -7,6 +7,7 @@ import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 function ScheduleEventForm() {
     const [fromValue, setFromValue] = useState(new Date());
     const [toValue, setToValue] = useState(new Date());
+    const [Location, setLocation] = useState("Budapest");
 
     const handleFromDateTimeChange = (newValue) => {
         setFromValue(newValue);
@@ -19,6 +20,11 @@ function ScheduleEventForm() {
         setToValue(newValue);
     };
 
+    const handleLocationChanged = (event) => {
+        setLocation(event.target.value);
+        console.log(event.target.value);
+    };
+
     return (
         <Box
             component="form"
@@ -29,7 +35,7 @@ function ScheduleEventForm() {
             autoComplete="off"
         >
             <TextField id="title" label="Title" variant="outlined"/>
-            <TextField id="description" label="Description" variant="outlined"/>
+            <TextField id="location" label="Location" variant="outlined" onChange={handleLocationChanged}/>
                 <Box className='MuiTextField formElements'>
                     <DateTimePicker
                         label="From"
@@ -44,6 +50,7 @@ function ScheduleEventForm() {
                         renderInput={(params) => <TextField {...params} />}
                     />
                 </Box>
+                <TextField id="description" label="Description" variant="outlined"/>
         </Box>
     );
 }
