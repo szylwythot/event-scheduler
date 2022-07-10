@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Typography, Button } from '@mui/material';
 
-function Homepage() {
+function Home() {
   return (
     <Box>
         <Typography variant="h1">Welcome to Szilvi's event scheduler!</Typography>
@@ -10,4 +10,4 @@ function Homepage() {
   )
 }
 
-export default Homepage
+export default Home
