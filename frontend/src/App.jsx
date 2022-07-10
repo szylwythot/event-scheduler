@@ -1,16 +1,21 @@
 import './App.css';
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Home from './components/Home';
+import { LocalizationProvider } from '@mui/x-date-pickers';
+// import { BrowserRouter } from "react-router-dom";
+// date-fns
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 
-import { BrowserRouter } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-        <Routes>
-            <Route path="/" element={<Home />} />
-        </Routes>
-    </div>
+    <LocalizationProvider dateAdapter={AdapterDateFns}>
+        <div className="App">
+            <Routes>
+                <Route path="/" element={<Home />} />
+            </Routes>
+        </div>
+    </LocalizationProvider>
   );
 }
 
