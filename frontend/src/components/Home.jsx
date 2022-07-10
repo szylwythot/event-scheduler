@@ -7,7 +7,7 @@ function Home() {
 
     const scheduleEventButtonClicked = () => {
         setScheduleEventDlgOpened(true);
-        console.log("edit btn cicked");
+        console.log("edit btn clicked");
     }
 
     const closeScheduleEventDialog = () => {
@@ -15,11 +15,11 @@ function Home() {
         console.log("schedule dialog is closing");
     }
 
-    // const saveCloseModifyDlg = () => {
-    //     closeModifyDlg();
-    //     // save
-    //     console.log("save btn cicked");
-    // }
+    const saveScheduleEvent = () => {
+        closeScheduleEventDialog();
+        // save
+        console.log("save btn cicked");
+    }
 
 
   return (
@@ -33,7 +33,7 @@ function Home() {
         >
             Let's start!
         </Button>
-        <ScheduleEventDialog  open={scheduleEventDlgOpened} handleCloseFunction={closeScheduleEventDialog} /> 
+        <ScheduleEventDialog  open={scheduleEventDlgOpened} onClose={closeScheduleEventDialog} onSave={saveScheduleEvent} /> 
     </Box>
   )
 }
