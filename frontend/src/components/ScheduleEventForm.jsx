@@ -6,9 +6,17 @@ import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 
 function ScheduleEventForm() {
     const [fromValue, setFromValue] = useState(new Date());
+    const [toValue, setToValue] = useState(new Date());
 
-    const handleChange = (newValue) => {
+    const handleFromDateTimeChange = (newValue) => {
         setFromValue(newValue);
+        if(newValue.getTime() > toValue.getTime()){ //this does not work...
+            setToValue(newValue);
+        }
+    };
+
+    const handleToDateTimeChange = (newValue) => {
+        setToValue(newValue);
     };
 
     return (
@@ -26,7 +34,13 @@ function ScheduleEventForm() {
                     <DateTimePicker
                         label="From"
                         value={fromValue}
-                        onChange={handleChange}
+                        onChange={handleFromDateTimeChange}
+                        renderInput={(params) => <TextField {...params} />}
+                    />
+                    <DateTimePicker
+                        label="To"
+                        value={toValue}
+                        onChange={handleToDateTimeChange}
                         renderInput={(params) => <TextField {...params} />}
                     />
                 </Box>
